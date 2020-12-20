@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# check if runing as root user
+if [ "$EUID" -ne 0 ]; then
+	echo -e "This script needs to run as root user, please use \"sudo ./install\" instead";
+	exit 1;
+fi
+
+
+
+# check if plymouth themes directory exist
+if [ ! -d "/usr/share/plymouth/themes" ]; then
+	echo -e "\"/usr/share/plymouth/themes\" directory dose not exist, are you sure plymouth is installed and up to date?";
+	exit 1;
+fi
+
+
+
+# coping theme in /usr/share/plymouth/themes/
+echo -n "coping theme in /usr/share/plymouth/themes/   ..................   " ;
+cp -r `dirname $0`/vortex-ubuntu /usr/share/plymouth/themes/ ;
+if [ $? -gt 0 ]; then
+	echo -e "\nan error occoured in moving `dirname $0`/vortex-ubuntu to /usr/share/plymouth/themes/" ;
+	exit 1;
+fi
+echo "[done]" ;
+
+
+
+# adding vortex-ubuntu in the list of aviable themes
+echo -n "updating plymouth themes alternatives   ........................   " ;
+update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth 100 ;
+if [ $? -gt 0 ]; then
+	echo -e "\nan error occoured installing alternative in /usr/share/plymouth/themes/default.plymouth" ;
+	exit 1;
+fi
+echo "[done]" ;
+
+
+
+# setting vortex-ubuntu as default plymouth theme;
+echo -n "setting vortex-ubuntu as default plymouth theme   ..............   " ;
+update-alternatives --set default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth  ;
+if [ $? -gt 0 ]; then
+	echo -e "\nan error occoured setting alternative in /usr/share/plymouth/themes/default.plymouth";
+	exit 1;
+fi
+echo "[done]" ;
+
+
+
+# updating Initial RAM File System
+echo -n "updating Initial RAM File System   .............................   " ;
+update-initramfs -u &> /dev/null ;
+if [ $? -gt 0 ]; then
+	echo -e "\nan error occoured executing \"update-initramfs -u\"";
+	exit 1;
+fi
+echo "[done]" ;
+
+
+
+echo "vortex-ubuntu is your plymouth theme now :)" ;
+
+
+
+exit 0;
