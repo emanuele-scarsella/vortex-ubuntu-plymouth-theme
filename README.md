@@ -5,22 +5,28 @@ boot up &amp; shutdown splash screen theme with the ubuntu logo and spinning col
 It is a simple plymouth theme with shell scripts to install, test and eventualy uninstall the theme.
 the theme have animations that makes the colored strips spin at different velocities with a vortex effect and on boot up it offers a simple but elegant progress bar
 
-#### Dependencies
+
+
+### Dependencies
 
 * plymouth, libplymouth5, plymouth-label
 * Raccomanded: plymouth-x11
 * Install dependencies with `sudo apt install plymouth libplymouth5 plymouth-label`
 
-#### Boot up splash screen
+
+
+### Boot up splash screen
 ![boot up splash screen](https://i.imgur.com/saWDpPb.png)
-#### Shutdown splash screen
-![boot up splash screen](https://i.imgur.com/UkLr5pX.png)
+### Shutdown splash screen
+![shutdown splash screen](https://i.imgur.com/UkLr5pX.png)
 
 
 
 
-## Installation
+# Installation
 
+
+> ### NOTE: apt compatible package coming soon!
 
 
 * go to the downloaded "vortex-ubuntu-plymouth-theme" folder from terminal, it can be done with the following command
@@ -37,10 +43,10 @@ sudo chmod +x install
 sudo ./install
 ```
 
-> NOTE: apt compatible packege coming soon!
 
 
-## Test
+
+# Test
 
 * go to the downloaded "vortex-ubuntu-plymouth-theme" folder from terminal, it can be done with the following command
 ```
@@ -56,7 +62,10 @@ sudo chmod +x show-splash.sh
 sudo ./show-splash.sh
 ```
 
-## Removal
+
+
+
+# Removal
 
 * go to the downloaded "vortex-ubuntu-plymouth-theme" folder from terminal, it can be done with the following command
 ```
@@ -74,13 +83,19 @@ sudo ./uninstall
 * then when asked chose the new plymouth theme by typing the number of your choice and pressing `Enter`
 
 
-### License
+
+
+
+## License
 
 
 This project is licensed under the GPL v.2 License - see the LICENSE.md file for details
 
 
-### Acknowledgments
+
+
+
+## Acknowledgments
 
 Inspiration, code snippets, etc.
 * [Inspiration for estetic &amp; style](https://atom.io/)
