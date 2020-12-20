@@ -1,6 +1,6 @@
 # Vortex Ubuntu
 
-boot up &amp; shutdown splash screen theme with the ubuntu logo and spinning colored strips.
+Animated plymouth theme with ubuntu logo and a futuristic and elegant look.
 
 It is a simple plymouth theme with shell scripts to install, test and eventualy uninstall the theme.
 the theme have animations that makes the colored strips spin at different velocities with a vortex effect and on boot up it offers a simple but elegant progress bar
