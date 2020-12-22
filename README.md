@@ -29,16 +29,16 @@ the theme have animations that makes the colored strips spin at different veloci
 > ### NOTE: apt compatible package coming soon!
 
 
-* go to the downloaded "vortex-ubuntu-plymouth-theme" folder from terminal, it can be done with the following command
+* go to the downloaded `vortex-ubuntu-plymouth-theme` folder from terminal, it can be done with the following command
 ```
 cd /PATH/TO/vortex-ubuntu-plymouth-theme
 ```
 or by opening the folder with your file explorer and going to RIGHT-CLICK > Open in Terminal
-* make the "install" file executable, it can be done with the following command
+* make the `install` file executable, it can be done with the following command
 ```
 sudo chmod +x install
 ```
-* execute the "install" file, it can be done with the following command
+* execute the `install` file, it can be done with the following command
 ```
 sudo ./install
 ```
@@ -48,16 +48,16 @@ sudo ./install
 
 # Test
 
-* go to the downloaded "vortex-ubuntu-plymouth-theme" folder from terminal, it can be done with the following command
+* go to the downloaded `vortex-ubuntu-plymouth-theme` folder from terminal, it can be done with the following command
 ```
 cd /PATH/TO/vortex-ubuntu-plymouth-theme
 ```
 or by opening the folder with your file explorer and going to RIGHT-CLICK > Open in Terminal
-* make the "show-splash.sh" file executable, it can be done with the following command
+* make the `show-splash.sh` file executable, it can be done with the following command
 ```
 sudo chmod +x show-splash.sh
 ```
-* execute the "show-splash.sh" file, it can be done with the following command
+* execute the `show-splash.sh` file, it can be done with the following command
 ```
 sudo ./show-splash.sh
 ```
@@ -67,21 +67,46 @@ sudo ./show-splash.sh
 
 # Removal
 
-* go to the downloaded "vortex-ubuntu-plymouth-theme" folder from terminal, it can be done with the following command
+* go to the downloaded `vortex-ubuntu-plymouth-theme` folder from terminal, it can be done with the following command
 ```
 cd /PATH/TO/vortex-ubuntu-plymouth-theme
 ```
 or by opening the folder with your file explorer and going to RIGHT-CLICK > Open in Terminal
-* make the "uninstall" file executable, it can be done with the following command
+* make the `uninstall` file executable, it can be done with the following command
 ```
 sudo chmod +x uninstall
 ```
-* execute the "uninstall" file, it can be done with the following command
+* execute the `uninstall` file, it can be done with the following command
 ```
 sudo ./uninstall
 ```
 * then when asked chose the new plymouth theme by typing the number of your choice and pressing `Enter`
 
+
+
+
+# Customizing background color
+
+* open the file in `vortex-ubuntu/bg.png` in any image editor of your choice
+
+* fill the image with the color you want as background
+
+* save changes ensuring to NOT change neither the file name `bg.png` neither his location `vortex-ubuntu`
+
+* proceed to installation/reinstallation
+
+
+
+
+# Customizing background image
+
+* rename, remove or move to a different folder the file in `vortex-ubuntu/bg.png`
+
+* put your custom background image IN PNG FORMAT inside the `vortex-ubuntu` folder
+
+* rename your custom beckground image as `bg.png`
+
+* proceed to installation/reinstallation
 
 
 
