@@ -2,7 +2,7 @@
 
 # check if runing as root user
 if [ "$EUID" -ne 0 ]; then
-	echo -e "This script needs to run as root user, please use \"sudo ./test.sh\" instead";
+	echo -e "This script needs to run as root user, please use \"sudo ./show-splash.sh\" instead";
 	exit 1;
 fi
 
