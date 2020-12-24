@@ -29,7 +29,7 @@ echo "[done]" ;
 
 # adding vortex-ubuntu in the list of aviable themes
 echo -n "updating plymouth themes alternatives   ........................   " ;
-update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth 100 ;
+update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth 100  &> /dev/null ;
 if [ $? -gt 0 ]; then
 	echo -e "\nan error occoured installing alternative in /usr/share/plymouth/themes/default.plymouth" ;
 	exit 1;
@@ -40,7 +40,7 @@ echo "[done]" ;
 
 # setting vortex-ubuntu as default plymouth theme;
 echo -n "setting vortex-ubuntu as default plymouth theme   ..............   " ;
-update-alternatives --set default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth  ;
+update-alternatives --set default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth  &> /dev/null ;
 if [ $? -gt 0 ]; then
 	echo -e "\nan error occoured setting alternative in /usr/share/plymouth/themes/default.plymouth";
 	exit 1;
