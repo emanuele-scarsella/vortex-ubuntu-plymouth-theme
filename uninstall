@@ -22,7 +22,7 @@ echo "[done]" ;
 # setting a new default plymouth theme;
 echo "asking user to set a different theme   ......   ...................   [done]" ;
 echo -e "\nDEFAULT OPTIONS ARE:" ;
-echo -e "for Ubuntu 20.04   ...   2  /usr/share/plymouth/themes/bgrt/bgrt.plymouth\n" ;
+echo -e "for Ubuntu 20.04   ...   1  /usr/share/plymouth/themes/bgrt/bgrt.plymouth\n" ;
 update-alternatives --config default.plymouth  ;
 if [ $? -gt 0 ]; then
 	echo -e "\nan error occoured setting alternative in /usr/share/plymouth/themes/default.plymouth";
