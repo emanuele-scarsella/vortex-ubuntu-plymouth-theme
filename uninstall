@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# check if runing as root user
+# check if running as root user
 if [ "$EUID" -ne 0 ]; then
 	echo -e "This script needs to run as root user, please use \"sudo ./uninstall\" instead";
 	exit 1;
