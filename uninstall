@@ -10,7 +10,7 @@ fi
 
 # removing vortex-ubuntu in the list of aviable themes
 echo -n "updating plymouth themes alternatives   ........................   " ;
-update-alternatives --remove default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth ;
+update-alternatives --remove default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth &> /dev/null ;
 if [ $? -gt 0 ]; then
 	echo -e "\nan error occoured removing alternative in /usr/share/plymouth/themes/default.plymouth" ;
 	exit 1;
