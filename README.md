@@ -14,7 +14,8 @@ the theme have animations that makes the colored strips spin at different veloci
 * Install dependencies with `sudo apt install plymouth libplymouth5 plymouth-label`
 
 
-
+### Boot up splash screen (GIF)
+![boot up splash screen GIF](https://i.imgur.com/qkZKjFJ.gif)
 ### Boot up splash screen
 ![boot up splash screen](https://i.imgur.com/saWDpPb.png)
 ### Shutdown splash screen
