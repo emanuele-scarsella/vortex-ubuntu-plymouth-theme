@@ -93,8 +93,10 @@ See [`LICENSE`][license] for more information.
 ## Acknowledgments
 
 * [Inspiration for aesthetic &amp; style][atom]
+* [adi1090x/plymouth-themes][adi1090x-plymouth-themes] for prompt examples
 
 
+[adi1090x-plymouth-themes]: https://github.com/adi1090x/plymouth-themes
 [atom]: https://atom.io
-[plymouth]: https://freedesktop.org/wiki/Software/Plymouth/
 [license]: /LICENSE
+[plymouth]: https://freedesktop.org/wiki/Software/Plymouth/
