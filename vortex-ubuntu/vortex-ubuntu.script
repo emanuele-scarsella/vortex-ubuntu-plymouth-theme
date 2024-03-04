@@ -1,19 +1,21 @@
 /*
- * Screen dimensions and background
+ * Screen dimensions
  */
-
-Window.SetBackgroundTopColor (0, 0, 0);
-Window.SetBackgroundBottomColor (0, 0, 0);
-bg_image = Image("bg.png");
-bg_image = bg_image.Scale(Window.GetWidth (), Window.GetHeight());
-bg = Sprite(bg_image);
-bg.SetZ(-10);
 
 // Screen size
 screen.w = Window.GetWidth(0);
 screen.h = Window.GetHeight(0);
 screen.half.w = Window.GetWidth(0) / 2;
 screen.half.h = Window.GetHeight(0) / 2;
+
+/*
+ * Background
+ */
+
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+bg = Sprite(Image("bg.png").Scale(screen.w, screen.h));
+bg.SetZ(-10);
 
 /*
  * Global state
@@ -29,7 +31,7 @@ message = null;
 // Password prompt
 bullets = null;
 prompt = null;
-bullet.image = Image.Text("*", 1, 1, 1);
+bullet.image = Image("dot.png").Scale(10, 10);
 
 // Flow
 time_counter = 0.0;
@@ -68,8 +70,7 @@ spins = [0.009, 0.007, 0.006, 0.0053, 0.0048, 0.004, 0.0035, 0.003, 0.0025, 0.00
 spins.logo = -0.009;
 spin_sprite_count = 10;
 
-logo_image = Image("logo.png");
-logo_image = logo_image.Scale(120 * splash_scale, 120 * splash_scale);
+logo_image = Image("logo.png").Scale(120 * splash_scale, 120 * splash_scale);
 logo_sprite = make_splash_sprite_from_image(logo_image);
 
 splash_static_bg_image = Image("static.png");
@@ -99,19 +100,17 @@ fun refresh_callback() {
     time_counter++;
     update_splash_sprites();
 }
-
 Plymouth.SetRefreshFunction(refresh_callback);
 
-#----------------------------------------- Progress Bar --------------------------------
+// Progress bar
 if (Plymouth.GetMode () == "boot") {
     ipb = Image("pb.png");
-    pb = ipb.Scale(1, 3);
     pb = Sprite(ipb);
     pb.SetX(Window.GetWidth() / 2 - 50);
     pb.SetY((Window.GetHeight() * 0.6) - ipb.GetHeight() / 2);
 
-    fun progress_callback(duration, progress) {
+    fun boot_progress_callback(duration, progress) {
          pb.SetImage(ipb.Scale(progress * 100, 3));
     }
-    Plymouth.SetBootProgressFunction(progress_callback);
+    Plymouth.SetBootProgressFunction(boot_progress_callback);
 }
