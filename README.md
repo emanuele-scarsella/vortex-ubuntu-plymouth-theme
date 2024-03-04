@@ -4,7 +4,10 @@ Animated [Plymouth][plymouth] theme with the Ubuntu logo and a futuristic and
 elegant look.
 
 The splash image color wheel spins at varying speeds creating a vortex effect.
-During boot, a simple but elegant progress bar is displayed.
+During boot, a simple but elegant progress bar is displayed. Simultaneously, the
+Ubuntu logo spins in the opposite direction.
+
+Disk encryption password prompt is supported.
 
 ## Demo
 
@@ -72,6 +75,11 @@ The uninstallation process will prompt you to set a new theme. The default
 Plymouth theme in Ubuntu 22.04 is `bgrt`.
 
 # Customization
+
+## Logo spin
+
+To disable the logo image spin, edit `vortex-ubuntu/vortex-ubuntu.script` and
+change `logo_spin = -0.009;` to `logo_spin = 0;` near the top.
 
 ## Background color
 

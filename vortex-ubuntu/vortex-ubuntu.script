@@ -1,4 +1,10 @@
 /*
+ * Configuration
+ */
+
+logo_spin = -0.009;
+
+/*
  * Screen dimensions
  */
 
@@ -68,7 +74,6 @@ fun make_splash_sprite(fn) {
 }
 
 spins = [0.009, 0.007, 0.006, 0.0053, 0.0048, 0.004, 0.0035, 0.003, 0.0025, 0.002];
-spins.logo = -0.009;
 spin_sprite_count = 10;
 
 logo_image = Image("logo.png").Scale(120 * splash_scale, 120 * splash_scale);
@@ -87,7 +92,7 @@ fun rotate_splash_sprite(splash_sprite, rotation) {
 }
 
 fun update_splash_sprites() {
-    rotate_splash_sprite(logo_sprite, time_counter * spins["logo"]);
+    rotate_splash_sprite(logo_sprite, time_counter * logo_spin);
     for (i = 0; i < spin_sprite_count; i++) {
         rotate_splash_sprite(splash_sprites[i], time_counter * spins[i]);
     }
