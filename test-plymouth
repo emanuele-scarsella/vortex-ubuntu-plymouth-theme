@@ -1,0 +1,37 @@
+#!/bin/sh
+
+set -e
+
+if [ "$(id -u)" != "0" ]; then
+    exec sudo "${0}" "${@}"
+fi
+
+usage() {
+    (
+        echo "Usage: ${0} [prompt]"
+    ) >&2
+    exit 1
+}
+
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ] || [ "${1}" = "help" ]; then
+    usage
+fi
+
+set -x
+
+plymouthd
+trap 'plymouth quit' EXIT
+
+plymouth --show-splash
+if [ "${1}" = "prompt" ]; then
+    plymouth --ask-for-password --prompt="Enter a password"
+    plymouth ask-question --command=cat --prompt="Say a few words"
+fi
+sleep 1
+plymouth display-message \
+    --text="Sample status or error text for display to the user"
+
+for i in $(seq 1 10); do
+    plymouth --update="Reticulating splines ${i}"
+    sleep 1
+done
