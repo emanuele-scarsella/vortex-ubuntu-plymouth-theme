@@ -24,7 +24,7 @@ trap 'plymouth quit' EXIT
 
 plymouth --show-splash
 if [ "${1}" = "prompt" ]; then
-    plymouth --ask-for-password --prompt="Enter a password"
+    plymouth ask-for-password --prompt="Enter a password"
     plymouth ask-question --command=cat --prompt="Say a few words"
 fi
 sleep 1
