@@ -15,14 +15,6 @@ Disk encryption password prompt is supported.
 
 ![Boot splash animated demo](images/demo.gif)
 
-### Boot splash screen
-
-![Boot splash screenshot](images/demo-boot.png)
-
-### Shutdown splash screen
-
-![Shutdown splash screenshot](images/demo-shutdown.png)
-
 ## Installation
 
 To preview the theme interactively, install the `plymouth-x11` package:
