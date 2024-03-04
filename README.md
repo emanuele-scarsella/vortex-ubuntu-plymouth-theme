@@ -95,6 +95,11 @@ See [`LICENSE`][license] for more information.
 * [Inspiration for aesthetic &amp; style][atom]
 * [adi1090x/plymouth-themes][adi1090x-plymouth-themes] for prompt examples
 
+## Contributions
+
+* Created by [@emanuele-scarsella](https://github.com/emanuele-scarsella)
+* Password prompt and code improvements by [@smkent](https://github.com/smkent)
+
 
 [adi1090x-plymouth-themes]: https://github.com/adi1090x/plymouth-themes
 [atom]: https://atom.io
