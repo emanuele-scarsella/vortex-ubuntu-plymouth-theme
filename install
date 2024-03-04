@@ -1,15 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -e
 
-if [ "${EUID}" != "0" ]; then
+if [ "$(id -u)" != "0" ]; then
     exec sudo "${0}" "${@}"
 fi
 
 themes_dir="/usr/share/plymouth/themes"
 theme_name="vortex-ubuntu"
 
-function install() {
+install() {
     set -x
     cp -r "$(dirname "${0}")/${theme_name}" "${themes_dir}/"
     update-alternatives \
@@ -27,7 +27,7 @@ function install() {
     update-initramfs -u
 }
 
-function uninstall() {
+uninstall() {
     set -x
     update-alternatives \
         --remove \
@@ -41,12 +41,12 @@ function uninstall() {
     rm -rvf "${themes_dir:?}/${theme_name:?}/"
 }
 
-function usage() {
+usage() {
     echo "Usage: ${0} [uninstall]" >&2
     exit 1
 }
 
-if [ "${1}" == "-h" ] || [ "${1}" == "--help" ] || [ "${1}" == "help" ]; then
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ] || [ "${1}" = "help" ]; then
     usage
 fi
 
