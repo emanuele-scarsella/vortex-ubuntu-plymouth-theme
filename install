@@ -39,7 +39,7 @@ function uninstall() {
 }
 
 function usage() {
-    echo "Usage: ${0} install|uninstall" >&2
+    echo "Usage: ${0} [uninstall]" >&2
     exit 1
 }
 
@@ -53,7 +53,7 @@ if [ ! -d "/usr/share/plymouth/themes" ]; then
 fi
 
 case "${1}" in
-    install)
+    "")
         install;;
     uninstall)
         uninstall;;
