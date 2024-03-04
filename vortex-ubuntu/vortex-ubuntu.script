@@ -146,11 +146,18 @@ fun display_password_callback(prompt_text, dot_count) {
     display_prompt(prompt_text);
 
     response = null;
-    dot_start_position = screen.half.w - (dot_count * bullet.image.GetWidth()) / 2;
-    for (i = 0; i < dot_count; i++) {
-        response[i].sprite = Sprite(bullet.image);
-        response[i].sprite.SetX(dot_start_position + i * bullet.image.GetWidth());
-        response[i].sprite.SetY(response_y);
+    if (dot_count > 0) {
+        dot_start_position = screen.half.w - (dot_count * bullet.image.GetWidth()) / 2;
+        for (i = 0; i < dot_count; i++) {
+            response[i].sprite = Sprite(bullet.image);
+            response[i].sprite.SetX(dot_start_position + i * bullet.image.GetWidth());
+            response[i].sprite.SetY(response_y + (text_line_height - bullet.image.GetHeight()) / 2);
+        }
+    } else {
+        response.image = Image.Text("Enter passphrase", 1, 1, 1, 0.5);
+        response.sprite = Sprite(response.image);
+        response.sprite.SetX(screen.half.w - response.image.GetWidth() / 2);
+        response.sprite.SetY(response_y);
     }
 }
 Plymouth.SetDisplayPasswordFunction(display_password_callback);
