@@ -6,20 +6,23 @@ if [ "${EUID}" != "0" ]; then
     exec sudo "${0}" "${@}"
 fi
 
+themes_dir="/usr/share/plymouth/themes"
+theme_name="vortex-ubuntu"
+
 function install() {
     set -x
-    cp -r "$(dirname "${0}")"/vortex-ubuntu /usr/share/plymouth/themes/
+    cp -r "$(dirname "${0}")/${theme_name}" "${themes_dir}/"
     update-alternatives \
         --install \
-        /usr/share/plymouth/themes/default.plymouth \
+        "${themes_dir}/default.plymouth" \
         default.plymouth \
-        /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth \
+        "${themes_dir}/${theme_name}/${theme_name}.plymouth" \
         100
 
     update-alternatives \
         --set \
         default.plymouth \
-        /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth
+        "${themes_dir}/${theme_name}/${theme_name}.plymouth"
 
     update-initramfs -u
 }
@@ -29,13 +32,13 @@ function uninstall() {
     update-alternatives \
         --remove \
         default.plymouth \
-        /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth
+        "${themes_dir}/${theme_name}/${theme_name}.plymouth"
     # Prompt user for a different theme
     update-alternatives \
         --config \
         default.plymouth
     update-initramfs -u
-    rm -rvf /usr/share/plymouth/themes/vortex-ubuntu/
+    rm -rvf "${themes_dir:?}/${theme_name:?}/"
 }
 
 function usage() {
@@ -47,8 +50,8 @@ if [ "${1}" == "-h" ] || [ "${1}" == "--help" ] || [ "${1}" == "help" ]; then
     usage
 fi
 
-if [ ! -d "/usr/share/plymouth/themes" ]; then
-    echo "\"/usr/share/plymouth/themes\" directory does not exist" >&2
+if [ ! -d "${themes_dir}" ]; then
+    echo "\"${themes_dir}\" directory does not exist" >&2
     exit 1
 fi
 
