@@ -29,8 +29,10 @@ prompt = null;
 response = null;
 bullet.image = Image("dot.png").Scale(10, 10);
 
+text_line_height = Image.Text("Dummy text abcxyz").GetHeight();
 prompt_y = screen.h * 0.75;
-response_y = prompt_y + Image.Text("Dummy text abcxyz").GetHeight() * 2;
+response_y = prompt_y + text_line_height * 2;
+message_y = prompt_y + text_line_height * 4;
 
 // Flow
 time_counter = 0.0;
@@ -161,8 +163,8 @@ fun display_normal_callback() {
 Plymouth.SetDisplayNormalFunction(display_normal_callback);
 
 fun message_callback(text) {
-    message.image = Image.Text(text, 1, 1, 1);
+    message.image = Image.Text(text, 1, 1, 1, 0.75, "Sans 10");
     message.sprite = Sprite(message.image);
-    message.sprite.SetPosition(screen.half.w - message.image.GetWidth() / 2, message.image.GetHeight());
+    message.sprite.SetPosition(screen.half.w - message.image.GetWidth() / 2, message_y);
 }
 Plymouth.SetMessageFunction(message_callback);
