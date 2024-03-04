@@ -15,11 +15,16 @@ the theme have animations that makes the colored strips spin at different veloci
 
 
 ### Boot up splash screen (GIF)
-![boot up splash screen GIF](https://i.imgur.com/qkZKjFJ.gif)
+
+![boot up splash screen GIF](images/demo.gif)
+
 ### Boot up splash screen
-![boot up splash screen](https://i.imgur.com/saWDpPb.png)
+
+![boot up splash screen](images/demo-boot.png)
+
 ### Shutdown splash screen
-![shutdown splash screen](https://i.imgur.com/UkLr5pX.png)
+
+![shutdown splash screen](images/demo-shutdown.png)
 
 
 
