@@ -1,67 +1,65 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-# check if runing as root user
-if [ "$EUID" -ne 0 ]; then
-	echo -e "This script needs to run as root user, please use \"sudo ./install\" instead";
-	exit 1;
+set -e
+
+if [ "$(id -u)" != "0" ]; then
+    exec sudo "${0}" "${@}"
 fi
 
+themes_dir="/usr/share/plymouth/themes"
+theme_name="vortex-ubuntu"
 
+install() {
+    set -x
+    cp -r "$(dirname "${0}")/${theme_name}" "${themes_dir}/"
+    update-alternatives \
+        --install \
+        "${themes_dir}/default.plymouth" \
+        default.plymouth \
+        "${themes_dir}/${theme_name}/${theme_name}.plymouth" \
+        100
 
-# check if plymouth themes directory exist
-if [ ! -d "/usr/share/plymouth/themes" ]; then
-	echo -e "\"/usr/share/plymouth/themes\" directory dose not exist, are you sure plymouth is installed and up to date?";
-	exit 1;
+    update-alternatives \
+        --set \
+        default.plymouth \
+        "${themes_dir}/${theme_name}/${theme_name}.plymouth"
+
+    update-initramfs -u
+}
+
+uninstall() {
+    set -x
+    update-alternatives \
+        --remove \
+        default.plymouth \
+        "${themes_dir}/${theme_name}/${theme_name}.plymouth"
+    # Prompt user for a different theme
+    update-alternatives \
+        --config \
+        default.plymouth
+    update-initramfs -u
+    rm -rvf "${themes_dir:?}/${theme_name:?}/"
+}
+
+usage() {
+    echo "Usage: ${0} [uninstall]" >&2
+    exit 1
+}
+
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ] || [ "${1}" = "help" ]; then
+    usage
 fi
 
-
-
-# coping theme in /usr/share/plymouth/themes/
-echo -n "coping theme in /usr/share/plymouth/themes/   ..................   " ;
-cp -r `dirname $0`/vortex-ubuntu /usr/share/plymouth/themes/ ;
-if [ $? -gt 0 ]; then
-	echo -e "\nan error occoured in moving `dirname $0`/vortex-ubuntu to /usr/share/plymouth/themes/" ;
-	exit 1;
+if [ ! -d "${themes_dir}" ]; then
+    echo "\"${themes_dir}\" directory does not exist" >&2
+    exit 1
 fi
-echo "[done]" ;
 
-
-
-# adding vortex-ubuntu in the list of aviable themes
-echo -n "updating plymouth themes alternatives   ........................   " ;
-update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth 100  &> /dev/null ;
-if [ $? -gt 0 ]; then
-	echo -e "\nan error occoured installing alternative in /usr/share/plymouth/themes/default.plymouth" ;
-	exit 1;
-fi
-echo "[done]" ;
-
-
-
-# setting vortex-ubuntu as default plymouth theme;
-echo -n "setting vortex-ubuntu as default plymouth theme   ..............   " ;
-update-alternatives --set default.plymouth /usr/share/plymouth/themes/vortex-ubuntu/vortex-ubuntu.plymouth  &> /dev/null ;
-if [ $? -gt 0 ]; then
-	echo -e "\nan error occoured setting alternative in /usr/share/plymouth/themes/default.plymouth";
-	exit 1;
-fi
-echo "[done]" ;
-
-
-
-# updating Initial RAM File System
-echo -n "updating Initial RAM File System   .............................   " ;
-update-initramfs -u &> /dev/null ;
-if [ $? -gt 0 ]; then
-	echo -e "\nan error occoured executing \"update-initramfs -u\"";
-	exit 1;
-fi
-echo "[done]" ;
-
-
-
-echo "vortex-ubuntu is your plymouth theme now :)" ;
-
-
-
-exit 0;
+case "${1}" in
+    "")
+        install;;
+    uninstall)
+        uninstall;;
+    *)
+        usage;;
+esac

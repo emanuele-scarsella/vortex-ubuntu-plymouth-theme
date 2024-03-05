@@ -1,127 +1,107 @@
-# Vortex Ubuntu
+# Vortex Ubuntu boot splash theme
 
-Animated plymouth theme with ubuntu logo and a futuristic and elegant look.
+Animated [Plymouth][plymouth] theme with the Ubuntu logo and a futuristic and
+elegant look.
 
-It is a simple plymouth theme with shell scripts to install, test and eventualy uninstall the theme.
-the theme have animations that makes the colored strips spin at different velocities with a vortex effect and on boot up it offers a simple but elegant progress bar
+The splash image color wheel spins at varying speeds creating a vortex effect.
+During boot, a simple but elegant progress bar is displayed. Simultaneously, the
+Ubuntu logo spins in the opposite direction.
 
+Disk encryption password prompt is supported.
 
+## Demo
 
-### Dependencies
+### Animated demo
 
-* plymouth, libplymouth5, plymouth-label
-* Raccomanded: plymouth-x11
-* Install dependencies with `sudo apt install plymouth libplymouth5 plymouth-label`
+![Boot splash animated demo](images/demo.gif)
 
+## Installation
 
-### Boot up splash screen (GIF)
-![boot up splash screen GIF](https://i.imgur.com/qkZKjFJ.gif)
-### Boot up splash screen
-![boot up splash screen](https://i.imgur.com/saWDpPb.png)
-### Shutdown splash screen
-![shutdown splash screen](https://i.imgur.com/UkLr5pX.png)
+To preview the theme interactively, install the `plymouth-x11` package:
 
-
-
-
-# Installation
-
-
-> ### NOTE: apt compatible package coming soon!
-
-
-* go to the downloaded `vortex-ubuntu-plymouth-theme` folder from terminal, it can be done with the following command
-```
-cd /PATH/TO/vortex-ubuntu-plymouth-theme
-```
-or by opening the folder with your file explorer and going to RIGHT-CLICK > Open in Terminal
-* make the `install` file executable, it can be done with the following command
-```
-sudo chmod +x install
-```
-* execute the `install` file, it can be done with the following command
-```
-sudo ./install
+```shell
+sudo apt install plymouth-x11
 ```
 
+To install the theme and set it as the default, navigate to the repository
+directory and invoke the `install` script:
 
-
-
-# Test
-
-* go to the downloaded `vortex-ubuntu-plymouth-theme` folder from terminal, it can be done with the following command
-```
-cd /PATH/TO/vortex-ubuntu-plymouth-theme
-```
-or by opening the folder with your file explorer and going to RIGHT-CLICK > Open in Terminal
-* make the `show-splash.sh` file executable, it can be done with the following command
-```
-sudo chmod +x show-splash.sh
-```
-* execute the `show-splash.sh` file, it can be done with the following command
-```
-sudo ./show-splash.sh
+```shell
+cd path/to/vortex-ubuntu-plymouth-theme
+./install
 ```
 
+`install` invokes `sudo` so you will be asked for your password.
 
+## Preview / Testing
 
+To preview the currently active Plymouth theme, navigate to the repository
+directory and invoke the `test-plymouth` script:
 
-# Removal
+```shell
+cd path/to/vortex-ubuntu-plymouth-theme
 
-* go to the downloaded `vortex-ubuntu-plymouth-theme` folder from terminal, it can be done with the following command
+# Show Plymouth preview for 10 seconds
+./test-plymouth
+
+# Show Plymouth with mock password and question/answer prompts,
+# then show splash for 10 more seconds
+./test-plymouth prompt
 ```
-cd /PATH/TO/vortex-ubuntu-plymouth-theme
+
+`test-plymouth` invokes `sudo` so you will be asked for your password.
+
+## Removal
+
+To remove the theme, navigate to the repository
+directory and invoke the `install` script with the `uninstall` argument:
+
+```shell
+cd path/to/vortex-ubuntu-plymouth-theme
+./install uninstall
 ```
-or by opening the folder with your file explorer and going to RIGHT-CLICK > Open in Terminal
-* make the `uninstall` file executable, it can be done with the following command
-```
-sudo chmod +x uninstall
-```
-* execute the `uninstall` file, it can be done with the following command
-```
-sudo ./uninstall
-```
-* then when asked chose the new plymouth theme by typing the number of your choice and pressing `Enter`
 
+`install` invokes `sudo` so you will be asked for your password.
 
+The uninstallation process will prompt you to set a new theme. The default
+Plymouth theme in Ubuntu 22.04 is `bgrt`.
 
+# Customization
 
-# Customizing background color
+## Logo spin
 
-* open the file in `vortex-ubuntu/bg.png` in any image editor of your choice
+To disable the logo image spin, edit `vortex-ubuntu/vortex-ubuntu.script` and
+change `logo_spin = -0.009;` to `logo_spin = 0;` near the top.
 
-* fill the image with the color you want as background
+## Background color
 
-* save changes ensuring to NOT change neither the file name `bg.png` neither his location `vortex-ubuntu`
+Modify `vortex-ubuntu/bg.png` in the repository, and fill the image with your
+desired background color. After modification, reinstall the theme with
+`./install` as described above.
 
-* proceed to installation/reinstallation
+## Background image
 
-
-
-
-# Customizing background image
-
-* rename, remove or move to a different folder the file in `vortex-ubuntu/bg.png`
-
-* put your custom background image IN PNG FORMAT inside the `vortex-ubuntu` folder
-
-* rename your custom beckground image as `bg.png`
-
-* proceed to installation/reinstallation
-
-
-
+Replace `vortex-ubuntu/bg.png` in the repository with your desired background
+image. Your image must be in PNG format. After modification, reinstall the theme
+with `./install` as described above.
 
 ## License
 
-
-This project is licensed under the GPL v.2 License - see the LICENSE.md file for details
-
-
-
-
+This project is licensed under the GNU General Public License (GPL) version 2.
+See [`LICENSE`][license] for more information.
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [Inspiration for estetic &amp; style](https://atom.io/)
+* [Inspiration for aesthetic &amp; style][atom]
+* [adi1090x/plymouth-themes][adi1090x-plymouth-themes] for prompt examples
+
+## Contributions
+
+* Created by [@emanuele-scarsella](https://github.com/emanuele-scarsella)
+* Password prompt and code improvements by [@smkent](https://github.com/smkent)
+
+
+[adi1090x-plymouth-themes]: https://github.com/adi1090x/plymouth-themes
+[atom]: https://atom.io
+[license]: /LICENSE
+[plymouth]: https://freedesktop.org/wiki/Software/Plymouth/
