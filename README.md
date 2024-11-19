@@ -1,5 +1,22 @@
 # Vortex Ubuntu boot splash theme
 
+<style>
+	.__hero {
+		background-repeat: no-repeat;
+		background-position: center 55%;
+		width: 700px;
+		height: 400px;
+		margin: 2rem auto;
+		border-radius: 3rem;
+		background-size: 250%;
+	}
+
+	.__img {
+		width: 50%;
+	}
+</style>
+<div class="__hero" style="background-image: url(images/shutdown.gif);"></div>
+
 Animated [Plymouth][plymouth] theme with the Ubuntu logo and a futuristic and
 elegant look.
 
@@ -9,11 +26,23 @@ Ubuntu logo spins in the opposite direction.
 
 Disk encryption password prompt is supported.
 
-## Demo
+## Examples
 
-### Animated demo
+#### Bootup
 
-![Boot splash animated demo](images/demo.gif)
+![Boot splash animated demo][bootup]
+
+#### Shutdown
+
+![Shutdown splash animated demo][shutdown]
+
+#### Password
+
+![Boot splash with password animated demo][password]
+
+#### Question
+
+![Boot splash with question animated demo][question]
 
 ## Installation
 
@@ -105,3 +134,8 @@ See [`LICENSE`][license] for more information.
 [atom]: https://atom.io
 [license]: /LICENSE
 [plymouth]: https://freedesktop.org/wiki/Software/Plymouth/
+[demo]: images/vortex-ubuntu.png
+[bootup]: images/bootup.gif
+[shutdown]: images/shutdown.gif
+[password]: images/password.gif
+[question]: images/question.gif
