@@ -1,21 +1,6 @@
 # Vortex Ubuntu boot splash theme
 
-<style>
-	.__hero {
-		background-repeat: no-repeat;
-		background-position: center 55%;
-		width: 700px;
-		height: 400px;
-		margin: 2rem auto;
-		border-radius: 3rem;
-		background-size: 250%;
-	}
-
-	.__img {
-		width: 50%;
-	}
-</style>
-<div class="__hero" style="background-image: url(images/shutdown.gif);"></div>
+![Vortex Ubuntu][vortex-ubuntu]
 
 Animated [Plymouth][plymouth] theme with the Ubuntu logo and a futuristic and
 elegant look.
@@ -121,20 +106,19 @@ See [`LICENSE`][license] for more information.
 
 ## Acknowledgments
 
-* [Inspiration for aesthetic &amp; style][atom]
-* [adi1090x/plymouth-themes][adi1090x-plymouth-themes] for prompt examples
+-   [Inspiration for aesthetic &amp; style][atom]
+-   [adi1090x/plymouth-themes][adi1090x-plymouth-themes] for prompt examples
 
 ## Contributions
 
-* Created by [@emanuele-scarsella](https://github.com/emanuele-scarsella)
-* Password prompt and code improvements by [@smkent](https://github.com/smkent)
-
+-   Created by [@emanuele-scarsella](https://github.com/emanuele-scarsella)
+-   Password prompt and code improvements by [@smkent](https://github.com/smkent)
 
 [adi1090x-plymouth-themes]: https://github.com/adi1090x/plymouth-themes
 [atom]: https://atom.io
 [license]: /LICENSE
 [plymouth]: https://freedesktop.org/wiki/Software/Plymouth/
-[demo]: images/vortex-ubuntu.png
+[vortex-ubuntu]: images/vortex-ubuntu.png
 [bootup]: images/bootup.gif
 [shutdown]: images/shutdown.gif
 [password]: images/password.gif
