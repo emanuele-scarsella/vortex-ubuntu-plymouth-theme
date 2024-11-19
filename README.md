@@ -1,5 +1,7 @@
 # Vortex Ubuntu boot splash theme
 
+![Vortex Ubuntu][vortex-ubuntu]
+
 Animated [Plymouth][plymouth] theme with the Ubuntu logo and a futuristic and
 elegant look.
 
@@ -9,11 +11,23 @@ Ubuntu logo spins in the opposite direction.
 
 Disk encryption password prompt is supported.
 
-## Demo
+## Examples
 
-### Animated demo
+#### Bootup
 
-![Boot splash animated demo](images/demo.gif)
+![Boot splash animated demo][bootup]
+
+#### Shutdown
+
+![Shutdown splash animated demo][shutdown]
+
+#### Password
+
+![Boot splash with password animated demo][password]
+
+#### Question
+
+![Boot splash with question animated demo][question]
 
 ## Installation
 
@@ -92,16 +106,20 @@ See [`LICENSE`][license] for more information.
 
 ## Acknowledgments
 
-* [Inspiration for aesthetic &amp; style][atom]
-* [adi1090x/plymouth-themes][adi1090x-plymouth-themes] for prompt examples
+-   [Inspiration for aesthetic &amp; style][atom]
+-   [adi1090x/plymouth-themes][adi1090x-plymouth-themes] for prompt examples
 
 ## Contributions
 
-* Created by [@emanuele-scarsella](https://github.com/emanuele-scarsella)
-* Password prompt and code improvements by [@smkent](https://github.com/smkent)
-
+-   Created by [@emanuele-scarsella](https://github.com/emanuele-scarsella)
+-   Password prompt and code improvements by [@smkent](https://github.com/smkent)
 
 [adi1090x-plymouth-themes]: https://github.com/adi1090x/plymouth-themes
 [atom]: https://atom.io
 [license]: /LICENSE
 [plymouth]: https://freedesktop.org/wiki/Software/Plymouth/
+[vortex-ubuntu]: images/vortex-ubuntu.png
+[bootup]: images/bootup.gif
+[shutdown]: images/shutdown.gif
+[password]: images/password.gif
+[question]: images/question.gif
