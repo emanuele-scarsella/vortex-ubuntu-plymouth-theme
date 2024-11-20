@@ -1,6 +1,7 @@
 <h1 align="center">Vortex Ubuntu boot splash theme</h1>
-<img src=images/vortex-ubuntu.png >
-<br><br>
+<p align="center">
+	<img src=images/vortex-ubuntu.png? >
+</p>
 <p align="center">
 	<a href="https://www.gnome-look.org/p/1499429"><img src="https://img.shields.io/badge/Rank%20on-Gnome--look.org-%207ca5df%20?logo=gnome&logoColor=lightgrey&labelColor=303030&color=%237fa5db" ></a>
 </p>
