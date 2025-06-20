@@ -108,6 +108,7 @@ See [`LICENSE`][license] for more information.
 
 -   Created by [@emanuele-scarsella](https://github.com/emanuele-scarsella)
 -   Password prompt and code improvements by [@smkent](https://github.com/smkent)
+-   Pausing animation during (password) prompt by [@nesono](https://github.com/nesono)
 
 [adi1090x-plymouth-themes]: https://github.com/adi1090x/plymouth-themes
 [atom]: https://atom.io

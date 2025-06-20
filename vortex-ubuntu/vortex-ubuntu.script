@@ -43,6 +43,9 @@ message_y = prompt_y + text_line_height * 4;
 // Flow
 time_counter = 0.0;
 
+// Stop animation flag
+stop_animation = 0;
+
 /*
  * Splash image
  */
@@ -92,9 +95,11 @@ fun rotate_splash_sprite(splash_sprite, rotation) {
 }
 
 fun update_splash_sprites() {
-    rotate_splash_sprite(logo_sprite, time_counter * logo_spin);
-    for (i = 0; i < spin_sprite_count; i++) {
-        rotate_splash_sprite(splash_sprites[i], time_counter * spins[i]);
+    if (stop_animation == 0) {
+      rotate_splash_sprite(logo_sprite, time_counter * logo_spin);
+      for (i = 0; i < spin_sprite_count; i++) {
+          rotate_splash_sprite(splash_sprites[i], time_counter * spins[i]);
+      }
     }
 }
 
@@ -129,6 +134,7 @@ fun display_prompt(prompt_text) {
 }
 
 fun display_question_callback(prompt_text, entry) {
+    stop_animation = 1;
     display_prompt(prompt_text);
 
     local.entry_config.alpha = 1.0;
@@ -148,6 +154,7 @@ fun display_question_callback(prompt_text, entry) {
 Plymouth.SetDisplayQuestionFunction(display_question_callback);
 
 fun display_password_callback(prompt_text, dot_count) {
+	stop_animation = 1;
     display_prompt(prompt_text);
 
     response = null;
@@ -171,6 +178,7 @@ fun display_normal_callback() {
     prompt = null;
     message = null;
     response = null;
+	stop_animation = 0;
 }
 Plymouth.SetDisplayNormalFunction(display_normal_callback);
 
