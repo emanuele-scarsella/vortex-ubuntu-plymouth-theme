@@ -11,9 +11,9 @@ theme_name="vortex-ubuntu"
 
 install() {
     set -x
-	if [ -d "${themes_dir}/${theme_name}" ]; then
-		uninstall
-	fi
+    if [ -d "${themes_dir}/${theme_name}" ]; then
+        uninstall
+    fi
     cp -r "$(dirname "${0}")/${theme_name}" "${themes_dir}/"
     update-alternatives \
         --install \
